@@ -1,0 +1,4 @@
+:8080 {
+  root * /Users/qhu/workspace/hl/webpush/client-sample
+  file_server
+}
