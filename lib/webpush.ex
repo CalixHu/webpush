@@ -25,13 +25,26 @@ defmodule Webpush do
       }
   }
 
+  @edge_subscription %{
+    endpoint: "https://sg2p.notify.windows.com/w/?token=BQYAAACl%2fIm6djBu9qbIyT7w5ZR5ncpMcm3NV9VTT%2f1qQ9iH9dkBR8U3JWkCim9q6jpbnlRMMO9mY%2bM%2bUstCj6ozg%2bv66Diw%2fHhGFG6jwSIDr7nMkGiNr0CLSJe8ilmW4VOKixulDCiDeO4ZWzWNIM1nSNrnOykQ7sU7MXwl7F7E0dqiHtvD87M9oRd12CUVfHKkB4MZkO52Ro92eEmlTSxjgFAqkf2cmltb1r39zb2FMn9NKcukQJG9m4OEs81fVKzpmyG8LFL8qB1lCMuq4nTOzWFK62cVbZ45ek1EavXt%2blIYFo4s%2bD2eMO9up77Q9q%2fbA4s%3d",
+    expirationTime: nil,
+    keys:
+      %{
+        p256dh: "BLXWy0ktpuTvhTGHRO3pBo6ACAWw6l_X1GkGWjbHMkHLIdNChXKYTHsZ6cMes3n29gv0DRyz143D63NunW2-D9o",
+        auth: "h7DLB_RqB4V7itmQ9kWkIA"
+      }
+  }
+
 
   def chrome_push do
     WebPushEncryption.send_web_push(@push_message, @chrome_subscription)
   end
 
   def firefox_push do
-
     WebPushEncryption.send_web_push(@push_message, @firefox_subscription)
+  end
+
+  def edge_push do
+    WebPushEncryption.send_web_push(@push_message, @edge_subscription)
   end
 end
